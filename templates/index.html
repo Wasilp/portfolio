@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="csrf-token" content="{{ csrf_token() }}">
+  <title>Wasilewski Pierre - Portfolio</title>
+  <link type="text/css" rel="stylesheet" href="static/css/framework.min.css" />
+  <link type="text/css" rel="stylesheet" href="static/css/app.css" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+  <style>
+    @import url('https://fonts.googleapis.com/css?family=Noto+Sans+JP:400,900&subset=japanese');
+  </style>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body>
+
+  <!-- //////////////////////////////////////////////////////////////////
+                                   HEADER
+     ////////////////////////////////////////////////////////////////// -->
+  <header class="boite-marge-nulle">
+    <div id="header_Hero">
+      <div class="contenu-centre boite-fixe grille-g">
+        <div id="typing">
+          <typewriter>
+          </typewriter>
+        </div>
+
+      </div>
+    </div>
+  </header>
+  <main>
+    <!-- //////////////////////////////////////////////////////////////////
+                                    SECTION ABOUT ME
+       ////////////////////////////////////////////////////////////////// -->
+    <section class="grille-g boite-fixe" id="sectionAbout">
+      <div id="about" class=" xs12 l4">
+        <h1 class="xs 12">Upload <br> <span> Here</span> </h1>
+
+        <form method="POST" id='uploadForm' enctype="multipart/form-data">
+          <input id='fileid' type='file' name="file" hidden />
+          <input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
+          <div class="overlay m6 s12 hovereffect">
+
+            <a href="#" class="info" id="buttonid">
+              <span class="text">Upload</span>
+              <span class="line -right"></span>
+              <span class="line -top"></span>
+              <span class="line -left"></span>
+              <span class="line -bottom"></span>
+            </a>
+          </div>
+          <div class="overlay m6 s12 hovereffect">
+            <a href="#" class="submitbtn_a" id="buttonid">
+              <input type="submit" class="submitbtn" value="submit" id="submit_button" />
+              <span class="line -right"></span>
+              <span class="line -top"></span>
+              <span class="line -left"></span>
+              <span class="line -bottom"></span>
+            </a>
+          </div>
+        </form>
+      </div>
+      <figure class="xs12 l4 contenu-centre" id="aboutImg">
+        <img src="static/image/38645821_10216264567301913_1882157357480280064_o.jpg" alt="">
+      </figure>
+      <figure class="xs12 l4 contenu-centre" id="aboutImg">
+        <img id='compImg' src="{{file_path}}" alt="">
+        <p id="results"></p>
+        <p id="metric"></p>
+      </figure>
+    </section>
+  </main>
+
+
+  <!-- //////////////////////////////////////////////////////////////////
+                                       FOOTER
+         ////////////////////////////////////////////////////////////////// -->
+  <footer class="grille-g ">
+    <div>
+
+      <!-- //////////////////////////////////////////////////////////////////
+                                  SECTION FOOTER SOCIAL
+     ////////////////////////////////////////////////////////////////// -->
+      <section class="contenu-centre" id="Social">
+        <div class="xs12">
+          <i class="fab fa-github-alt"></i>
+        </div>
+      </section>
+
+    </div>
+  </footer>
+
+  <div id="app"></div>
+  <script src="{{ url_for('static', filename='js/build.js') }}" type=text/javascript></script>
+  <script src="./static/js/build.js"></script>
+</body>
+
+</html>
